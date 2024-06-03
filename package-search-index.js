@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"jaji.home.demo"},{"l":"jaji.home.demo.entity"},{"l":"jaji.home.demo.enums"},{"l":"jaji.home.demo.repository"},{"l":"jaji.home.demo.service"}];updateSearchResults();
