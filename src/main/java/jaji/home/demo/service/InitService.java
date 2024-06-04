@@ -34,7 +34,7 @@ public class InitService {
         jakub.setAttack(wizardStaff.getDmgMax() + 5);
         jakub.setName("Mighty Jakub");
         jakub.setAge(150);
-        jakub.setRole(RoleType.WIZARD);
+        jakub.setRoleTypeKod(RoleType.WIZARD.getKod());
         jakub.setDefense(6);
         jakub.setWeapon(wizardStaff);
 

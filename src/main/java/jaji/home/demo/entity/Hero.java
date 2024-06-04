@@ -1,6 +1,5 @@
 package jaji.home.demo.entity;
 
-import jaji.home.demo.enums.RoleType;
 import jakarta.persistence.*;
 
 @Entity
@@ -12,7 +11,7 @@ public class Hero {
 
     private String name;
 
-    private RoleType role;
+    private int roleTypeKod;
 
     private int age;
 
@@ -36,12 +35,12 @@ public class Hero {
         this.name = name;
     }
 
-    public RoleType getRole() {
-        return role;
+    public int getRoleTypeKod() {
+        return roleTypeKod;
     }
 
-    public void setRole(RoleType role) {
-        this.role = role;
+    public void setRoleTypeKod(int roleTypeKod) {
+        this.roleTypeKod = roleTypeKod;
     }
 
     public int getAge() {
