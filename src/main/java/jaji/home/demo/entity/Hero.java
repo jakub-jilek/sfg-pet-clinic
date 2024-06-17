@@ -11,7 +11,7 @@ public class Hero {
 
     private String name;
 
-    private int roleTypeKod;
+    private int roleTypeCode;
 
     private int age;
 
@@ -35,12 +35,12 @@ public class Hero {
         this.name = name;
     }
 
-    public int getRoleTypeKod() {
-        return roleTypeKod;
+    public int getRoleTypeCode() {
+        return roleTypeCode;
     }
 
-    public void setRoleTypeKod(int roleTypeKod) {
-        this.roleTypeKod = roleTypeKod;
+    public void setRoleTypeCode(int roleTypeCode) {
+        this.roleTypeCode = roleTypeCode;
     }
 
     public int getAge() {

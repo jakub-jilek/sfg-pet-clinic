@@ -1,7 +1,9 @@
 package jaji.home.demo.entity;
 
-import jaji.home.demo.enums.WeaponType;
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 @Entity
 public class Weapon {
@@ -10,7 +12,7 @@ public class Weapon {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long weaponId;
 
-    private WeaponType weaponType;
+    private int weaponTypeCode;
 
     private int price;
 
@@ -22,12 +24,12 @@ public class Weapon {
         return weaponId;
     }
 
-    public WeaponType getWeaponType() {
-        return weaponType;
+    public int getWeaponTypeCode() {
+        return weaponTypeCode;
     }
 
-    public void setWeaponType(WeaponType weaponType) {
-        this.weaponType = weaponType;
+    public void setWeaponTypeCode(int weaponTypeCode) {
+        this.weaponTypeCode = weaponTypeCode;
     }
 
     public int getPrice() {

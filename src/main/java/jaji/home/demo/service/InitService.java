@@ -26,7 +26,7 @@ public class InitService {
 
         Weapon wizardStaff = new Weapon();
         wizardStaff.setPrice(1000);
-        wizardStaff.setWeaponType(WeaponType.STAFF);
+        wizardStaff.setWeaponTypeCode(WeaponType.STAFF.getCode());
         wizardStaff.setDmgMin(5);
         wizardStaff.setDmgMax(15);
 
@@ -34,7 +34,7 @@ public class InitService {
         jakub.setAttack(wizardStaff.getDmgMax() + 5);
         jakub.setName("Mighty Jakub");
         jakub.setAge(150);
-        jakub.setRoleTypeKod(RoleType.WIZARD.getKod());
+        jakub.setRoleTypeCode(RoleType.WIZARD.getCode());
         jakub.setDefense(6);
         jakub.setWeapon(wizardStaff);
 

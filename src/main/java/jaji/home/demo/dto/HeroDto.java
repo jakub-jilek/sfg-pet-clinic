@@ -1,4 +1,6 @@
 package jaji.home.demo.dto;
 
-public class HeroDto {
+import jaji.home.demo.enums.RoleType;
+
+public record HeroDto(long id, String name, RoleType role, int age, int attack, int defense, WeaponDto weaponDto) {
 }
