@@ -8,7 +8,6 @@ public class WeaponMapper {
 
     public static WeaponDto weaponToWeaponDto(Weapon weapon) {
         WeaponDto dto = new WeaponDto(
-                weapon.getWeaponId(),
                 WeaponType.getWeaponByCode(weapon.getWeaponTypeCode()),
                 weapon.getPrice(),
                 weapon.getDmgMin(),

@@ -7,24 +7,23 @@ import jaji.home.demo.enums.RoleType;
 public class HeroMapper {
 
     public static HeroDto HeroToHeroDto(Hero hero) {
-        HeroDto dto = new HeroDto(
-                hero.getHeroId(),
-                hero.getName(),
-                RoleType.getRoleByCode(hero.getRoleTypeCode()),
-                hero.getAge(),
-                hero.getAttack(),
-                hero.getDefense(),
-                WeaponMapper.weaponToWeaponDto(hero.getWeapon())
-        );
+        HeroDto dto = new HeroDto();
+
+        dto.setName(hero.getName());
+        dto.setRole(RoleType.getRoleByCode(hero.getRoleTypeCode()));
+        dto.setAge(hero.getAge());
+        dto.setAttack(hero.getAttack());
+        dto.setDefense(hero.getDefense());
+        dto.setWeaponDto(WeaponMapper.weaponToWeaponDto(hero.getWeapon()));
 
         return dto;
     }
 
     public static Hero HeroDtoToHero(HeroDto dto) {
         Hero hero = new Hero();
-        hero.setName(dto.name());
-        hero.setAge(dto.age());
-        hero.setWeapon(WeaponMapper.weaponDtoToWeapon(dto.weaponDto()));
+        hero.setName(dto.getName());
+        hero.setAge(dto.getAge());
+        hero.setWeapon(WeaponMapper.weaponDtoToWeapon(dto.getWeaponDto()));
 
         return hero;
     }
