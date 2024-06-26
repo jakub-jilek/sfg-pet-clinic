@@ -1,6 +1,7 @@
 package jaji.home.demo.controller;
 
 import jaji.home.demo.dto.HeroDto;
+import jaji.home.demo.entity.Hero;
 import jaji.home.demo.service.HeroService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,14 +19,24 @@ public class HeroController {
     }
 
     @PostMapping
-    public ResponseEntity<?> create(@RequestBody HeroDto heroDto) {
-        this.heroService.create(heroDto);
+    public ResponseEntity<Hero> create(@RequestBody HeroDto heroDto) {
+        Hero hero = this.heroService.create(heroDto);
 
-        return ResponseEntity.ok().build();
+        return ResponseEntity.accepted().body(hero);
     }
 
     @GetMapping("/all")
-    public List<HeroDto> getALl() {
+    public List<HeroDto> getAll() {
         return this.heroService.getAll();
+    }
+
+    @GetMapping("/{heroId}/name")
+    public String getHeroName(@PathVariable long heroId) {
+        return this.heroService.getHeroName(heroId);
+    }
+
+    @DeleteMapping("/{heroId}")
+    public void delete(@PathVariable long heroId) {
+        this.heroService.deleteHeroById(heroId);
     }
 }
