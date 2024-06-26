@@ -4,6 +4,8 @@ import jaji.home.demo.dto.HeroDto;
 import jaji.home.demo.entity.Hero;
 import jaji.home.demo.enums.RoleType;
 
+import javax.management.relation.Role;
+
 public class HeroMapper {
 
     public static HeroDto HeroToHeroDto(Hero hero) {
@@ -23,6 +25,9 @@ public class HeroMapper {
         Hero hero = new Hero();
         hero.setName(dto.getName());
         hero.setAge(dto.getAge());
+        hero.setRoleTypeCode(dto.getRole().getCode());
+        hero.setAttack(dto.getAttack());
+        hero.setDefense(dto.getDefense());
         hero.setWeapon(WeaponMapper.weaponDtoToWeapon(dto.getWeaponDto()));
 
         return hero;
