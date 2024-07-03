@@ -39,4 +39,9 @@ public class HeroController {
     public void delete(@PathVariable long heroId) {
         this.heroService.deleteHeroById(heroId);
     }
+
+    @PutMapping("/weapon/{weaponId}")
+    public void enhanceWeapon(@PathVariable long weaponId) {
+        this.heroService.enhanceWeapon(weaponId);
+    }
 }

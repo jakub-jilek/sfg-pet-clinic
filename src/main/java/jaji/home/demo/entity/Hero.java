@@ -20,7 +20,7 @@ public class Hero {
     private int defense;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "weapon_id", referencedColumnName = "weaponId")
+    @JoinColumn(name = "weapon_id")
     private Weapon weapon;
 
     public Long getHeroId() {

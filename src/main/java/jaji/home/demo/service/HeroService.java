@@ -2,9 +2,11 @@ package jaji.home.demo.service;
 
 import jaji.home.demo.dto.HeroDto;
 import jaji.home.demo.entity.Hero;
+import jaji.home.demo.entity.Weapon;
 import jaji.home.demo.enums.RoleType;
 import jaji.home.demo.mapper.HeroMapper;
 import jaji.home.demo.repository.HeroRepository;
+import jaji.home.demo.repository.WeaponRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -15,9 +17,11 @@ import java.util.List;
 public class HeroService {
 
     private final HeroRepository heroRepository;
+    private final WeaponRepository weaponRepository;
 
-    public HeroService(HeroRepository heroRepository) {
+    public HeroService(HeroRepository heroRepository, WeaponRepository weaponRepository) {
         this.heroRepository = heroRepository;
+        this.weaponRepository = weaponRepository;
     }
 
     public Hero create(HeroDto heroDto) {
@@ -43,5 +47,19 @@ public class HeroService {
 
     public void deleteHeroById(long heroId) {
         this.heroRepository.deleteById(heroId);
+    }
+
+    public void enhanceWeapon(long weaponId) {
+        Weapon weapon = this.weaponRepository.findById(weaponId).orElse(null);
+        if (weapon == null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+        int enhancedDmdMin = (int) (weapon.getDmgMin() * 1.5);
+        int enhancedDmdMax = (int) (weapon.getDmgMax() * 1.5);
+
+        weapon.setDmgMin(enhancedDmdMin);
+        weapon.setDmgMax(enhancedDmdMax);
+
+        weaponRepository.save(weapon);
     }
 }
