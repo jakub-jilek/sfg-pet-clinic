@@ -62,4 +62,8 @@ public class HeroService {
 
         weaponRepository.save(weapon);
     }
+
+    public List<Hero> getWarriors() {
+        return this.heroRepository.getWarriorHero();
+    }
 }

@@ -40,6 +40,11 @@ public class HeroController {
         this.heroService.deleteHeroById(heroId);
     }
 
+    @GetMapping("/warriors")
+    public List<Hero> getWarriors() {
+        return this.heroService.getWarriors();
+    }
+
     @PutMapping("/weapon/{weaponId}")
     public void enhanceWeapon(@PathVariable long weaponId) {
         this.heroService.enhanceWeapon(weaponId);
