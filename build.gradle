@@ -25,7 +25,15 @@ dependencies {
 	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-actuator
 	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: '3.3.0'
 
-
+	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-aop
+	// implementation group: 'org.springframework.boot', name: 'spring-boot-starter-aop', version: '3.3.2'
+	// Logging
+	implementation "org.springframework.boot:spring-boot-starter-log4j2"
+	modules {
+		module("org.springframework.boot:spring-boot-starter-logging") {
+			replacedBy("org.springframework.boot:spring-boot-starter-log4j2", "Use Log4j2 instead of Logback")
+		}
+	}
 }
 
 tasks.named('test') {

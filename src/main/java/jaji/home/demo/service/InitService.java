@@ -8,11 +8,16 @@ import jaji.home.demo.repository.HeroRepository;
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Service;
 
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+
 /**
  * Service for init data - first hero creation
  * */
 @Service
 public class InitService {
+
+    private final static Logger logger = LogManager.getLogger(InitService.class);
 
     private final HeroRepository heroRepository;
 
@@ -22,6 +27,7 @@ public class InitService {
 
     @PostConstruct
     public void init() {
+        logger.info("Zahajuji inicializaci dat aplikace");
         heroRepository.deleteAll();
 
         Weapon wizardStaff = new Weapon();
